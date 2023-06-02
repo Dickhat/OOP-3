@@ -507,9 +507,13 @@ int main()
 				Sleep(1000);
 
 				//if Проверка, что двигаем не пустой объект
-				if(i != 0 && j!= 1)
-					Pcur->Drag();						//Буксировка фигуры
+				if (i == 0 && j == 1)
+					break;
 
+				BALL[0]->set_visible(PenRed);			//Повторная отрисовка шара
+				BALL[1]->set_visible(PenRed);			//Повторная отрисовка шара
+
+				Pcur->Drag();						//Буксировка фигуры
 				break;
 			}//if
 		}//for
