@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Location" Collapsed="true">
-    <Position X="10.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAgEAAAAAAAAAAAAIAAAAIAAAAAAAEAAAAAAAAYAA=</HashCode>
-      <FileName>src\classes 3.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Point" Collapsed="true">
-    <Position X="10.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAgAAAAAgAQAABAABEAAAKCAAAAAAAAAA=</HashCode>
-      <FileName>src\classes 3.h</FileName>
-    </TypeIdentifier>
-  </Class>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="ball" Collapsed="true">
     <Position X="13.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
@@ -53,6 +39,23 @@
     <Position X="11.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAgAAAAAAAAAABAAAAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAIAIAgAAAAAgAQAAJAABEAAAGCAAAAAAAYAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Interface" Collapsed="true">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>src\classes 3.h</FileName>
     </TypeIdentifier>
   </Class>

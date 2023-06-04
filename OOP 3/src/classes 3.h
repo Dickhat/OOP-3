@@ -3,52 +3,24 @@
 
 using namespace std;
 
-//Класс местоположение
-class Location
+//Интерфейс с двумя чистыми виртуальными функциями
+class Interface
 {
-protected:
-	int X;//Координата X
-	int Y;//Координата Y
-
 public:
-	//Конструктор
-	Location(int ind_X, int ind_Y)
-	{
-		X = ind_X;
-		Y = ind_Y;
-	}
-
-	//Возвращает X
-	int Get_X()
-	{
-		return X;
-	};
-
-	//Возвращает Y
-	int Get_Y()
-	{
-		return Y;
-	}
-
-	//Устанавливает X
-	void Set_X(int ind_X)
-	{
-		X = ind_X;
-	};
-
-	//Устанавливает Y
-	void Set_Y(int ind_Y)
-	{
-		Y = ind_Y;
-	};
+	virtual void set_visible(HPEN color) = 0;	//Отображение объекта
+	virtual void set_invisible() = 0;			//Исчезновение объекта
 };
 
-//Класс точка
-class Point :public Location
+//Абстрактный класс "точка" с одной чистой ВФ
+class Point :public Interface
 {
 protected:
-	bool Visible;//Видимость точки
-	HPEN pen;
+	int X;	//Координата X
+	int Y;	//Координата Y
+
+	HPEN pen;//Ручка
+
+	//Хитбоксы
 	struct heat_box
 	{
 		int start_X, end_X, start_Y, end_Y;	//Координаты фигуры(В форме квадрата)
@@ -56,9 +28,10 @@ protected:
 
 public:
 	//КОНСТРУКТОР
-	Point(int X, int Y, HPEN& color) :Location(X, Y)
+	Point(int ind_X, int ind_Y, HPEN color) :Interface()
 	{
-		Visible = false;
+		X = ind_X;
+		Y = ind_Y;
 		pen = color;
 		boxheat.start_X = X;
 		boxheat.end_X = X + 1;
@@ -66,28 +39,38 @@ public:
 		boxheat.end_Y = Y + 1;
 	};
 
-	//Возвращает хитбоксы
-	const heat_box& get()
-	{
-		return boxheat;
-	}
+	//Возвращает X
+	int Get_X() { return X; };
 
-	HPEN& pen_color() 
-	{ 
-		return pen;
-	}
+	//Возвращает Y
+	int Get_Y() { return Y; }
+
+	//Устанавливает X
+	void Set_X(int ind_X) { X = ind_X; };
+
+	//Устанавливает Y
+	void Set_Y(int ind_Y) { Y = ind_Y; };
+
+	//Возвращает хитбоксы
+	const heat_box& get() { return boxheat; }
+
+	//Возвращает цвет ручки
+	HPEN pen_color() { return pen; }
 
 	//Делает видимой точку
-	virtual void set_visible(HPEN color);
+	void set_visible(HPEN color);
 
 	//Делает невидимой точку
-	virtual void set_invisible();
+	void set_invisible();
 
-	//Текущая область фигуры
-	virtual void current_region(int X, int Y);
+	//Текущая область фигуры (Чистая ВФ)
+	virtual void current_region(int X, int Y) = 0;
 
 	//Перемещает точку
 	void Move_To(int X, int Y);
+
+	//Перетаскивание точки
+	void Drag();
 };
 
 //Класс ядро
@@ -116,7 +99,7 @@ public:
 class Tower :public Point
 {
 public:
-	Tower(int X, int Y, HPEN& color) :Point(X, Y, color) {
+	Tower(int X, int Y, HPEN color) :Point(X, Y, color) {
 
 	};
 	void virtual Paint();
@@ -135,7 +118,7 @@ class vertical_Tower_1 :public Tower
 {
 public:
 	//Конструктор
-	vertical_Tower_1(int X, int Y, HPEN& color) :Tower(X, Y, color) {};
+	vertical_Tower_1(int X, int Y, HPEN color) :Tower(X, Y, color) {};
 
 	void current_region(int X, int Y);
 
@@ -151,7 +134,7 @@ class vertical_Tower_2 :public vertical_Tower_1
 {
 public:
 	//Конструктор
-	vertical_Tower_2(int X, int Y, HPEN& color) :vertical_Tower_1(X, Y, color) {};
+	vertical_Tower_2(int X, int Y, HPEN color) :vertical_Tower_1(X, Y, color) {};
 
 	void print_construction();
 

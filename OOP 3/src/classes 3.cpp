@@ -5,7 +5,6 @@ extern HDC hdc;//Контекст устройства(содержит описание видеокарты и всех необход
 //Делает видимой точку
 void Point::set_visible(HPEN color)
 {
-	Visible = true;
 	SetPixel(hdc, X, Y, RGB(255, 0, 0));		//рисуем точку установленным цветом
 	SetPixel(hdc, X + 1, Y, RGB(255, 0, 0));	//рисуем точку установленным цветом
 	SetPixel(hdc, X, Y + 1, RGB(255, 0, 0));	//рисуем точку установленным цветом
@@ -16,7 +15,6 @@ void Point::set_visible(HPEN color)
 //Делает невидимой точку
 void Point::set_invisible()
 {
-	Visible = false;
 	SetPixel(hdc, X, Y, RGB(0, 0, 0));			//рисуем точку установленным цветом
 	SetPixel(hdc, X + 1, Y, RGB(0, 0, 0));		//рисуем точку установленным цветом
 	SetPixel(hdc, X, Y + 1, RGB(0, 0, 0));		//рисуем точку установленным цветом
@@ -58,7 +56,6 @@ void ball::current_region(int X, int Y)
 
 void ball::set_visible(HPEN color)
 {
-	Visible = true;
 	//HPEN PenBlack = CreatePen(PS_SOLID, 3, RGB(255, 0, 0));
 	//делаем перо активным 
 	SelectObject(hdc, color);
@@ -70,7 +67,6 @@ void ball::set_visible(HPEN color)
 
 void ball::set_invisible()
 {
-	Visible = false;
 	//Белый цвет (сейчас)
 	HPEN PenBlack = CreatePen(PS_SOLID, 3, RGB(255, 255, 255));
 	//делаем перо активным 
@@ -123,7 +119,6 @@ void Tower::current_region(int X, int Y)
 //Делает видимой точку
 void Tower::set_visible(HPEN color)
 {
-	Visible = true;
 	//HPEN PenRed = CreatePen(PS_SOLID, 3, RGB(255, 0, 0));
 	//делаем перо активным 
 	SelectObject(hdc, color);
@@ -136,7 +131,6 @@ void Tower::set_visible(HPEN color)
 //Делает невидимой точку
 void Tower::set_invisible()
 {
-	Visible = false;
 	//Белый цвет (сейчас)
 	HPEN PenBlack = CreatePen(PS_SOLID, 3, RGB(255, 255, 255));
 	//делаем перо активным 
@@ -157,7 +151,6 @@ void vertical_Tower_1::current_region(int X, int Y)
 //Делает видимой башню
 void vertical_Tower_1::set_visible(HPEN color)
 {
-	Visible = true;
 	//HPEN PenGreen = CreatePen(PS_SOLID, 3, RGB(0, 255, 0));
 	//делаем перо активным 
 	SelectObject(hdc, color);
@@ -170,7 +163,6 @@ void vertical_Tower_1::set_visible(HPEN color)
 //Делает невидимой башню
 void vertical_Tower_1::set_invisible()
 {
-	Visible = false;
 	//Белый цвет (сейчас)
 	HPEN PenWhite = CreatePen(PS_SOLID, 3, RGB(255, 255, 255));
 	//делаем перо активным 
@@ -218,7 +210,6 @@ void vertical_Tower_2::current_region(int X, int Y)
 //Делает видимой башню в вертикальной иерархии 2
 void vertical_Tower_2::set_visible(HPEN color)
 {
-	Visible = true;
 	//HPEN PenBlue = CreatePen(PS_SOLID, 3, RGB(0, 0, 200));
 	//делаем перо активным 
 	SelectObject(hdc, color);
@@ -232,7 +223,6 @@ void vertical_Tower_2::set_visible(HPEN color)
 //Делает невидимой башню в вертикальной иерархии 2
 void vertical_Tower_2::set_invisible()
 {
-	Visible = false;
 	//Белый цвет (сейчас)
 	HPEN PenWhite = CreatePen(PS_SOLID, 3, RGB(255, 255, 255));
 	//делаем перо активным 
@@ -282,7 +272,6 @@ void left_construction_Tower::current_region(int X, int Y)
 //Делает видимой левую башню в веерной иерархии
 void left_construction_Tower::set_visible(HPEN color)
 {
-	Visible = true;
 	//HPEN PenGreen = CreatePen(PS_SOLID, 3, RGB(0, 255, 0));
 	//делаем перо активным 
 	SelectObject(hdc, color);
@@ -296,7 +285,6 @@ void left_construction_Tower::set_visible(HPEN color)
 //Делает невидимой левую башню в веерной иерархии
 void left_construction_Tower::set_invisible()
 {
-	Visible = false;
 	//Белый цвет (сейчас)
 	HPEN PenWhite = CreatePen(PS_SOLID, 3, RGB(255, 255, 255));
 	//делаем перо активным 
@@ -346,7 +334,6 @@ void right_construction_Tower::current_region(int X, int Y)
 //Делает видимой правую башню в веерной иерархии
 void right_construction_Tower::set_visible(HPEN color)
 {
-	Visible = true;
 	//HPEN PenGreen = CreatePen(PS_SOLID, 3, RGB(0, 255, 0));
 	//делаем перо активным 
 	SelectObject(hdc, color);
@@ -360,7 +347,6 @@ void right_construction_Tower::set_visible(HPEN color)
 //Делает невидимой правую башню в веерной иерархии
 void right_construction_Tower::set_invisible()
 {
-	Visible = false;
 	//Белый цвет (сейчас)
 	HPEN PenWhite = CreatePen(PS_SOLID, 3, RGB(255, 255, 255));
 	//делаем перо активным 
