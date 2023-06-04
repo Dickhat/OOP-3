@@ -1,9 +1,5 @@
 #pragma once
-#include <iostream>
-#include <windows.h>
-#include <conio.h>
-#include <vector>
-#include "support.h"
+#include "includes.h"
 
 using namespace std;
 
@@ -60,7 +56,7 @@ protected:
 
 public:
 	//КОНСТРУКТОР
-	Point(int X, int Y, HPEN color) :Location(X, Y)
+	Point(int X, int Y, HPEN& color) :Location(X, Y)
 	{
 		Visible = false;
 		pen = color;
@@ -76,7 +72,10 @@ public:
 		return boxheat;
 	}
 
-	HPEN pen_color() { return pen; }
+	HPEN& pen_color() 
+	{ 
+		return pen;
+	}
 
 	//Делает видимой точку
 	virtual void set_visible(HPEN color);
@@ -89,9 +88,6 @@ public:
 
 	//Перемещает точку
 	void Move_To(int X, int Y);
-
-	//Перетаскивание точки
-	void Drag();
 };
 
 //Класс ядро
@@ -120,7 +116,7 @@ public:
 class Tower :public Point
 {
 public:
-	Tower(int X, int Y, HPEN color) :Point(X, Y, color) {
+	Tower(int X, int Y, HPEN& color) :Point(X, Y, color) {
 
 	};
 	void virtual Paint();
@@ -139,7 +135,7 @@ class vertical_Tower_1 :public Tower
 {
 public:
 	//Конструктор
-	vertical_Tower_1(int X, int Y, HPEN color) :Tower(X, Y, color) {};
+	vertical_Tower_1(int X, int Y, HPEN& color) :Tower(X, Y, color) {};
 
 	void current_region(int X, int Y);
 
@@ -155,7 +151,7 @@ class vertical_Tower_2 :public vertical_Tower_1
 {
 public:
 	//Конструктор
-	vertical_Tower_2(int X, int Y, HPEN color) :vertical_Tower_1(X, Y, color) {};
+	vertical_Tower_2(int X, int Y, HPEN& color) :vertical_Tower_1(X, Y, color) {};
 
 	void print_construction();
 

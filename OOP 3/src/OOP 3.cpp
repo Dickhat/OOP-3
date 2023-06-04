@@ -1,9 +1,6 @@
-﻿#include "classes 3.h"
+﻿#include "support.h"
 
 HDC hdc;//Контекст устройства(содержит описание видеокарты и всех необходимых графических элементов)
-
-//Проверка столкновений
-int check(int i, int j, vector <Tower*>& Tow, vector <ball*>& BALL);
 
 int main()
 {
@@ -15,7 +12,6 @@ int main()
 	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
 	SelectObject(hdc, Pen);
 
-	Tower* Pcur;				//Указатель на текущий элемент
 	HPEN PenGreen = CreatePen(PS_SOLID, 3, RGB(0, 255, 0));
 	HPEN PenRed = CreatePen(PS_SOLID, 3, RGB(255, 0, 0));
 	HPEN PenBlue = CreatePen(PS_SOLID, 3, RGB(0, 0, 200));
@@ -57,63 +53,23 @@ int main()
 		new vertical_Tower_1(cons_tw_2.Get_X(),cons_tw_2.Get_Y(), PenRed)}			//Красная башня без пристройки
 	};
 
+	Point* Pcur;				//Указатель на текущий элемент
+
 	//for использование матрицы перехода
 	for(int i = 0; i < Tow.size(); ++i)
 	{
-		Pcur = Tow[i];									//Указатель на ПК
-		Pcur->set_visible(Pcur->pen_color());			//Отображение фигуры
+		Pcur = Tow[i];							//Указатель на ПК
+		Pcur->set_visible(Pcur->pen_color());	//Отображение фигуры
 		Sleep(1000);
-		Pcur->Drag();									//Буксировка фигуры
+		Drag(i, Pcur, Tow, BALL, collisions);	//Буксировка неизмененной фигуры
 
-		//for Поиск коллизий
-		for (int j = 0; j < BALL.size(); ++j)
-		{
-			//if Произошла коллизия
-			if (check(i, j, Tow, BALL))
-			{	
-				Pcur->set_invisible();					//Убрать старый объект
-
-				//Появление новой фигуры на месте старой
-				collisions[i][j]->Move_To(Pcur->Get_X(), Pcur->Get_Y());
-
-				Pcur = collisions[i][j];				//Взять объект из матрицы перехода
-				Pcur->set_visible(Pcur->pen_color());	//Отобразить новый объект
-
-				Sleep(1000);
-
-				//if Проверка, что двигаем не пустой объект
-				if (i == 0 && j == 1)
-					break;
-
-				BALL[0]->set_visible(PenRed);			//Повторная отрисовка шара
-				BALL[1]->set_visible(PenRed);			//Повторная отрисовка шара
-
-				Pcur->Drag();						//Буксировка фигуры
-				break;
-			}//if
-		}//for
+		Pcur->set_invisible();					//Убрать новый объект
 
 		BALL[0]->set_visible(PenRed);			//Повторная отрисовка шара
 		BALL[1]->set_visible(PenRed);			//Повторная отрисовка шара
-		Pcur->set_invisible();					//Убрать новый объект
 	}//for
 
 	DeleteObject(Pen);
 
 	return 0;
 }
-
-//Проверка столкновений
-int check(int i, int j,vector <Tower*>& Tow, vector <ball*>& BALL)
-{
-	
-	//if Проверка, что объекты столкнулись
-	if (Tow[i]->get().end_X < BALL[j]->get().start_X
-		|| Tow[i]->get().start_X > BALL[j]->get().end_X
-		|| Tow[i]->get().end_Y > BALL[j]->get().start_Y
-		|| Tow[i]->get().start_Y < BALL[j]->get().end_Y)
-		return 0;
-	else
-		return (j + 1);	//Вернуть номер объекта столкновения
-	
-};

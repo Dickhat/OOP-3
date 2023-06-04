@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Location" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAAAAAAAAAAIAAAAIAAAAAAAEAAAAAAAAYAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAgAAAAAgAQAABAABEAAAKCAAAAAAAAAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ball" Collapsed="true">
+    <Position X="13.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAACAAAAAAAAAAAAAABAAAAAAACiABIAAAAAAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tower" Collapsed="true">
+    <Position X="9.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAABAAAAAAACCAAAAAAIAAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vertical_Tower_1" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAABAAAAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vertical_Tower_2" Collapsed="true">
+    <Position X="9.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAgAAAAAAABAAAAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="left_construction_Tower" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAABAAAAAAACCAAAAAAAgAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="right_construction_Tower" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAgAAAAAAAAAABAAAAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>src\classes 3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
