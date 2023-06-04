@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="classes 3.cpp" />
     <ClCompile Include="OOP 3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes 3.h" />
+    <ClInclude Include="support.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
